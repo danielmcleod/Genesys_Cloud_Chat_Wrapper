@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <title>Test Chat App</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  <script>
+
+//local config
+
+const schedule = {
+  'monday': {open: '07:00', close: '23:30'},
+  'tuesday': {open: '07:00', close: '23:30'},
+  'wednesday': {open: '10:00', close: '23:30'},
+  'thursday': {open: '07:00', close: '23:30'},
+  'friday': {open: '07:00', close: '23:30'},
+  // 'saturday': {open: '07:00', close: '23:30'},
+  // 'sunday': {open: '07:00', close: '23:30'},
+  'holidays': [
+    // '2017-07-04','2017-09-04','2017-11-23','2017-12-25','2017-12-26','2018-01-01'
+  ]
+};
+
+window.PureCloudChat = {
+    config: {
+        //org info
+        orgId: 12345, //todo: replace with your orgId
+        orgName: 'acme', //todo: replace with your orgName
+        orgGuid: '00000000-0000-0000-0000-000000000000', //todo: replace with your orgGuid
+        deploymentKey: '00000000-0000-0000-0000-000000000000', //todo: replace with your chat deployment key
+        //configurable config changes start here
+        queue: 'Chat',
+        //skills: '',//not currently implemented in code
+        //priority: '',//not currently implemented in code
+        headerText: 'Chat with us',
+        chatButtonText: 'Need Help? Chat Now',
+        // closedButtonText: 'Leave us a message',
+        welcomeMessage: 'Chat with our team!',
+        submittedMessage: '',
+        submitErrorMessage: '',
+        logoUrl: 'URL to a small logo', //todo: update this URL
+        reconnectEnabled: true,
+        showSubmitButton: true
+    },
+    theme: {
+        background: '#104993',
+        text: '#ffffff'
+    },
+    schedule: schedule,
+    // postUrl: 'API action URL to create callback - not currently supported',
+    // cssUrl: 'CSS file URL', //Not required when running locally
+    formFields: [
+      {
+        isRequired: true,
+        name: 'name',
+        label: 'Name',
+        placeholder: 'full name..',
+        type: 'text',
+        validationMessage: 'Please provide your name.'
+      },
+      {
+        isRequired: true,
+        name: 'email',
+        label: 'Email',
+        placeholder: 'email address..',
+        type: 'email',
+        validationMessage: 'Please enter a valid email address.'
+      }
+      // ,{
+      //   isRequired: false,
+      //   name: 'phone',
+      //   label: 'Phone',
+      //   placeholder: '10 digit phone #..',
+      //   type: 'text',
+      //   length: 10,
+      //   validationMessage: 'Please enter your 10 digit phone #.'
+      // },
+      // {
+      //   isRequired: false,
+      //   name: 'customField1',
+      //   label: 'Account #',
+      //   placeholder: '11 digit account #..',
+      //   type: 'text',
+      //   length: 11
+      // },
+      // {
+      //   isRequired: true,
+      //   name: 'customField2',
+      //   label: 'What do you need help with?',
+      //   type: 'select',
+      //   options: [
+      //     'General Questions',
+      //     'Team Registration',
+      //     'Password Reset'
+      //   ],
+      //   validationMessage: 'Please let us know what you need help with.'
+      // }
+    ]
+};
+
+  </script>
+  </body>
+</html>
